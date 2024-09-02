@@ -1,0 +1,271 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <div class="row" style="background-color: rgb(253, 186, 109); ">
+		<div class="col-lg-6">
+			<div class="box-element" id="form-wrapper" style="background-color: rgb(252,232,212);">
+				<form id="form">
+					<div id="user-info">
+						<div class="form-field">
+							<input id="nameInput" required class="form-control" type="text" name="name" placeholder="Name">
+							<span id="error-message" style="color: rgb(0, 0, 0); display: none;">Only letters are allowed!</span>
+						</div>
+						<div class="form-field">
+							<input id="surnameInput" required class="form-control" type="text" name="name" placeholder="Surname">
+						</div>
+						<div class="form-field">
+							<input required class="form-control" type="email" name="email" placeholder="Email..">
+						</div>
+					</div>
+					
+					<div id="shipping-info" required>
+						<hr>
+						<p><strong>Shipping Information:</strong></p>
+						<hr>
+						<div class="form-field">
+							<input id=addressInput required class="form-control" type="text" name="address" placeholder="Address..">
+						</div>
+						<div class="form-field">
+							<input id="cityInput" required class="form-control" type="text" name="city" placeholder="City." >
+						</div>
+						<div class="form-field">
+							<input id="stateInput" required class="form-control" type="text" name="state" placeholder="State..">
+						</div>
+						<div class="form-field">
+							<input id="ZipcodeInput" required class="form-control" type="text" name="zipcode" placeholder="Zip code.." minlength="4" maxlength="4"  oninput="validateCodeNumber(this)">
+						</div>
+						<div class="form-field">
+							<input  id="countryInput" required class="form-control" type="text" name="country" placeholder="Country">
+						</div>
+						<hr>
+						<p><strong>Your Card:</strong></p>
+						<hr>
+						<div class="form-field">
+							<input id="cardInput"  required class="form-control" type="text" name="card number" placeholder="Card Number" maxlength="16" minlength="16" oninput="validateCardNumber(this)">
+							<span id="errormessage" style="color: rgb(0, 0, 0); display: none;">Only digits are allowed!</span>
+						</div>
+						<div class="form-field">
+							<input required class="form-control" type="date" name="expiration " placeholder="MM/DD/YY" min="2024-08-30">
+						</div>
+						<div class="form-field">
+							<input id=numberInput required class="form-control" type="number" name="num" placeholder="Security Code" >
+						</div>
+
+					</div>
+
+
+					<script>
+						document.getElementById('numberInput').addEventListener('input', function (e) {
+							// Sadece rakamlara izin verir, diğer karakterleri temizler
+							this.value = this.value.replace(/[^0-9]/g, '');
+						});
+						</script>
+
+					<script>
+						document.getElementById('surnameInput').addEventListener('input', function (e) {
+							this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+						});
+						</script>
+
+							<script>
+								document.getElementById('nameInput').addEventListener('input', function (e) {
+									this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+								});
+								</script>
+
+							<script>
+								document.getElementById('addressInput').addEventListener('input', function (e) {
+									this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+								});
+								</script>
+
+								<script>
+									document.getElementById('stateInput').addEventListener('input', function (e) {
+										this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+									});
+									</script>
+
+								<script>
+									document.getElementById('countryInput').addEventListener('input', function (e) {
+										this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+									});
+									</script>
+
+					<script>
+						function validateCardNumber(input) {
+							const errorMessage = document.getElementById('errormessage');
+							
+							// Eğer girilen karakterler sadece rakam değilse hata mesajı gösterilir.
+							if (/[^0-9]/.test(input.value)) {
+								input.value = input.value.replace(/[^0-9]/g, ''); // Rakam olmayan karakterler silinir
+								errorMessage.style.display = 'inline';
+							} else {
+								errorMessage.style.display = 'none';
+							}
+						}
+						</script>
+
+
+						<script>
+							document.getElementById('ZipcodeInput').addEventListener('input', function (e) {
+								// Sadece rakamlara izin verir, diğer karakterleri temizler
+								this.value = this.value.replace(/[^0-9]/g, '');
+							});
+							</script>
+
+							
+					<script>
+						const input = document.getElementById('cityInput');
+						
+						input.addEventListener('input', function () {
+							const value = input.value;
+							if (/\d/.test(value)) { // Check if there is any digit in the input
+								
+								input.value = value.replace(/\d/g, ''); // Remove any digits from the input
+							} 
+						});
+					</script>
+
+
+					<script>
+						const inputt = document.getElementById('numberInput');
+						const errorMessage = document.getElementById('error-message');
+				
+						inputt.addEventListener('input', function () {
+							const value = inputt.value;
+							if (value.length > 3) {
+								errorMessage.textContent = 'Please enter exactly 3 digits.';
+								inputt.value = value.slice(0, 3);
+							} else {
+								errorMessage.textContent = ''; 
+							}
+						});
+				
+						inputt.addEventListener('blur', function () {
+							const value = inputt.value;
+							if (value.length !== 3) {
+								errorMessage.textContent = 'Please enter exactly 3 digits.';
+								inputt.value = '';
+							} else {
+								errorMessage.textContent = ''; 
+							}
+						});
+					</script>
+
+
+					<hr>
+					<input id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">
+				</form>
+			</div>
+
+			<br>
+			<div class="box-element hidden" id="payment-info" style="background-color: rgb(252	232	212);">
+				<small style="font-family: 'Times New Roman';">Paypal Options</small>
+				<button class="btn btn-dark"  id="make-payment" href="{% url 'cart' %}" style="font-family: 'Times New Roman';" >Make Payment </button>
+			</div>
+			
+		</div>
+
+		<div class="col-lg-6" >
+			<div class="box-element" style="background-color: rgb(	252	232	212);">
+				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+				<hr>
+				<h3><strong>Order Summary</strong></h3>
+				<hr>
+				{% for item in items %}
+				<div class="cart-row">
+					<div style="flex:2"><img class="row-image" src="{{item.product.image}}"></div>
+					<div style="flex:2"><strong><p style="font-family:'Old Standard TT'  ;">{{item.product.name}}</p></strong></div>
+					<div style="flex:1"><strong><p>${{item.product.price}}</p></strong></div>
+					<div style="flex:1"><strong><p>x{{item.quantity}}</p></strong></div>
+				</div>
+				{% endfor %}
+				<h5><strong>Items:   {{order.get_cart_items}}</strong></h5>
+				<h5><strong>Total:   ${{order.get_cart_total|floatformat:2}}</strong></h5>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var shipping = '{{order.shipping}}'
+		var total = '{{order.get_cart_total}'
+
+		if (shipping == 'False'){
+		 	document.getElementById('shipping-info').innerHTML = ''
+		}
+
+		
+		var form = document.getElementById('form')
+		form.addEventListener('submit', function(e){
+	    	e.preventDefault()
+	    	console.log('Form Submitted...')
+	    	document.getElementById('form-button').classList.add("hidden");
+	    	document.getElementById('payment-info').classList.remove("hidden");
+	    })
+
+
+	    document.getElementById('make-payment').addEventListener('click', function(e){
+	    	submitFormData()
+	    })
+
+	    function submitFormData(){
+	    	console.log('Payment button clicked')
+
+	    	var userFormData = {
+				'name':null,
+				'email':null,
+				'total':total,
+			}
+
+			var shippingInfo = {
+				'address':null,
+				'city':null,
+				'state':null,
+				'zipcode':null,
+			}
+
+			if (shipping != 'False'){
+	    		shippingInfo.address = form.address.value
+		    	shippingInfo.city = form.city.value
+		    	shippingInfo.state = form.state.value
+		    	shippingInfo.zipcode = form.zipcode.value
+	    	}
+
+	    	if (user == 'AnonymousUser'){
+	    		userFormData.name = form.name.value
+	    		userFormData.email = form.email.value
+	    	}
+
+	    	console.log('Shipping Info:', shippingInfo)
+	    	console.log('User Info:', userFormData)
+
+	    	var url = "/process_order/"
+	    	fetch(url, {
+	    		method:'POST',
+	    		headers:{
+	    			'Content-Type':'applicaiton/json',
+	    			'X-CSRFToken':csrftoken,
+	    		}, 
+	    		body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),
+	    		
+	    	})
+	    	.then((response) => response.json())
+	    	.then((data) => {
+				  console.log('Success:', data);
+				  alert('Transaction completed');  
+
+				  localStorage.clear();
+
+				  window.location.href = "{% url 'cart' %}?purchased=true";
+
+				})
+
+				.catch((error) => {
+                   console.error('Error:', error);
+    });
+	    }
+	</script>
+{% endblock content %}
+
+
+ 

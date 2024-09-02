@@ -1,0 +1,199 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<a class="navbar-brand" href=""><h1 style="color: rgb(255, 170, 73); font-family:'Times New Roman' ;font-style:italic; font-size: 450%; text-align: center;" >Bag's Wave</h1></a>
+
+<a href="{% url 'cart' %}"><img  src="{% static 'images/shop.png' %}" width="100" height="100" style="margin-left: 1450px; margin-top: -240px;">
+
+  <p id="cart-total" style="margin-left: 1535px; margin-top: -245px; width: 30px; height: 30px;" ><strong>{{cartItems}}</strong></p>
+
+</a>
+
+<br><br><br><br><br><br><br><br>
+
+<div style="width: 400px; height: 600px; background-color: rgb(253, 186, 109); margin-top: 50px; margin-left: -280px;" id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div style="font-family:'Lucida Grande'; bottom: 20px;" class="carousel-caption d-none d-md-block">
+        <h5><strong>New In</strong></h5>
+    </div>
+    <div  class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div  style="width: 400px; height: 500px; padding: 50px; " class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="https://michaelkors.scene7.com/is/image/MichaelKors/32F4GBAU0F-0122_1?$large$" class="d-block w-100" alt="...">
+    </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://michaelkors.scene7.com/is/image/MichaelKors/32F4GBAU0F-0122_2?$large$" class="d-block w-100" alt="..."> 
+      </div>
+      <div class="carousel-item">
+        <img src="https://michaelkors.scene7.com/is/image/MichaelKors/32F4GBAU0F-0122_3?$large$" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div style="width: 990px; height: 600px; left: 150px; bottom: 600px; background-color: rgb(253, 186, 109) ;" id="carouselExample" class="carousel carousel-dark slide">
+    <div style="font-family:'Lucida Grande'; bottom: 20px;" class="carousel-caption d-none d-md-block">
+        <h5><strong>Comfortable</strong></h5>
+    </div>
+    <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div style="width: 990px; height: 510px; padding: 50px;" class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="https://i.pinimg.com/736x/d4/54/c4/d454c4b191c20bb99ef644e81a62b31d.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+        <img src="https://i.pinimg.com/736x/df/6c/d1/df6cd1e2993005379cdb56fb7b711fd2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://i.pinimg.com/736x/cf/a7/d1/cfa7d13f9b7ec20f1751855028a7ff37.jpg" class="d-block w-100" alt="...">
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div style="width: 400px; height: 600px; left: 1170px; bottom: 1200px; background-color: rgb(253, 186, 109) ;" id="carouselExample2" class="carousel carousel-dark slide">
+    <div style="font-family:'Lucida Grande'; bottom: 20px;" class="carousel-caption d-none d-md-block">
+        <h5><strong>Classic</strong></h5>
+    </div>
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div style="width: 400px; height: 500px; padding: 50px;" class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.pinimg.com/736x/e6/84/7b/e6847b347774aa3c1c62c3893beb4023.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/736x/5a/f5/b3/5af5b37c48dd0de1a3c7ab498da934f3.jpg" class="d-block w-100" alt="...">
+      </div>
+
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/736x/3a/df/68/3adf68a0571b7238bf573e8602e8931d.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+    
+  <div class="card" style="width: 90rem; bottom: 1250px; left: -100px; height: 970px; background-color: rgb(253, 186, 109); top: -1050px;">
+    <img src="https://i.pinimg.com/736x/73/d8/2e/73d82ecb9ea72e86b44aaeb869711e20.jpg" class="card-img-top" alt="..." style="width: 80rem; margin-left: 80px; margin-top: 50px;">
+    <div class="card-body">
+      <p class="card-text"></p>
+    </div>
+  </div>
+
+<h1 style="margin-top: -1000px; text-align: center; font-family: 'Times New Roman'; font-size: 1000%;">SHARE YOUR STYLE</h1>
+<br><br><br><br>
+
+<div> 
+<div class="row" ><br>
+ {%for product in products%}
+    <div class="col-lg-4" >
+        <img class="thumbnail" src="{{ product.image}}">
+        <div class="box-element product">
+            <br>
+            <h6><strong style="font-size: 170%; font-family:'Old Standard TT' ;">{{product.name}}</strong></h6>
+            <hr>
+
+            <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart ">Add to Cart</button>
+            <a class="btn btn-outline-success" href="#">View</a>
+            <br><br>
+            <h4 style="display: inline-block;"><strong>${{product.price}}</strong></h4>
+            
+        </div>
+        
+        
+    </div>
+    
+    {%endfor%} 
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+            <h1></h1>
+            <h1></h1>
+<h1 style="text-align: left; font-family: 'Times New Roman'; font-size: 130px;"> - Why Should We Buy    Luxury Handbags?</h1>
+
+<p style="font-family: 'Times New Roman'; font-size: 30px; margin-top: 3%;"> - Luxury handbags are not just accessories; they represent a lifestyle and a sense of aesthetic. For many people, luxury 
+  handbags symbolize elegance, sophistication, and high quality. 
+  However, there are several reasons why investing in luxury
+   handbags can be worthwhile. Here are some reasons why luxury 
+   handbags are worth considering:</p>
+
+   <h1 style="text-align: left; font-family: 'Times New Roman'; font-size: 100px; margin-top: 3%;"> - Quality and Durability</h1>
+<p style="font-family: 'Times New Roman'; font-size: 30px; margin-top: 3%;">- Luxury handbags are often crafted from the highest quality materials. Leather,
+   suede, and other premium fabrics ensure that these bags are long-la
+   sting and durable. They are meticulously crafted with attention to
+   detail, providing not only a 
+  stylish appearance but also a guarantee of longevity.</p>
+
+  <h1 style="text-align: left; font-family: 'Times New Roman'; font-size: 100px; margin-top: 3%;">- Timeless Designs</h1>
+<p style="font-family: 'Times New Roman'; font-size: 30px; margin-top: 3%;">- Luxury handbags are designed to be timeless and independent
+   of fleeting fashion trends. They usually feature classic and 
+   enduring aesthetics, ensuring that they remain stylish and 
+   relevant through the years. These bags are
+   fashion staples that do not go out of style.</p>
+   <h1 style="text-align: left; font-family: 'Times New Roman'; font-size: 100px; margin-top: 3%;">- Prestige and Status</h1>
+   <p style="font-family: 'Times New Roman'; font-size: 30px; margin-top: 3%;">- A luxury handbag typically carries the signature of a 
+    renowned brand or designer. This confers social prestige 
+    and status upon its owner. Luxury handbags represent not 
+    only aesthetic value
+    but also a lifestyle and success. </p>
+    <h1></h1>
+    <h1></h1>
+   <strong style="font-family: 'Times New Roman'; font-style: italic;"><h1>Our other medias</strong></h1>
+    <h1></h1>
+    <h1></h1>
+   <img href="{% url 'cart' %}"  src="https://i.pinimg.com/474x/cf/c1/7c/cfc17c469bee463c2127e8b2228e0e9e.jpg" style="width: 80px; height: 60px;">
+   <img src="https://i.pinimg.com/736x/1b/0f/3a/1b0f3a4ccd608ab35bc6fc1c9bff9a0c.jpg" style="width: 80px; height: 60px; margin-left: 10px;">
+   <img src="https://i.pinimg.com/736x/36/de/87/36de87d1d409dfb87723061f4db1076a.jpg" style="width: 80px; height: 60px; margin-left: 15px;">
+   <img src="https://i.pinimg.com/736x/2f/8e/ee/2f8eee046799d9702c4d35b058a30ec7.jpg" style="width: 80px; height: 60px; margin-left: 20px;">
+   <img src="https://i.pinimg.com/474x/8d/21/8b/8d218b2f1682d2e4a0667e83679515cf.jpg" style="width: 80px; height: 55px; margin-left: 25px;">
+   <img src="https://i.pinimg.com/736x/a6/9a/62/a69a62014391c3dffd8711f3c4b47806.jpg" style="width: 80px; height: 55px; margin-left: 30px;">
+   <h1></h1>
+   <h1></h1>
+   <h1></h1>
+   <h1></h1>
+   <h1></h1>
+   <h1></h1>
+  </div>
+
+</div>
+</div>
+{% endblock content %}
+
