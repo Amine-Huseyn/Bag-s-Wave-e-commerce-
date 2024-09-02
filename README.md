@@ -1,5 +1,4 @@
 
-![Video_2024_09_02-8](https://github.com/user-attachments/assets/175c143a-f316-44af-9cc5-b899f5d59fd1)
 
 ![Screenshot 2024-09-01 193041](https://github.com/user-attachments/assets/00275b1f-392d-4222-932c-21e6124336fd)
 
